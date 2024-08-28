@@ -10,7 +10,7 @@ import static java.nio.file.StandardOpenOption.CREATE;
 public class PersonGenerator {
     public static void main(String[] args) {
 
-        ArrayList<String> folks = new ArrayList<>();
+        ArrayList<Person> folks = new ArrayList<>();
         Scanner in = new Scanner(System.in);
 
         File workingDirectory = new File(System.getProperty("user.dir"));
@@ -23,7 +23,7 @@ public class PersonGenerator {
         e.	YearOfBirth (an int)
        */
 
-        String personRec = "";
+        //String personRec = "";
         String ID = "";
         String firstName = "";
         String lastName = "";
@@ -36,17 +36,18 @@ public class PersonGenerator {
             firstName = SafeInput.getNonZeroLenString(in, "Enter the first name");
             lastName = SafeInput.getNonZeroLenString(in, "Enter the last name");
             title = SafeInput.getNonZeroLenString(in, "Enter the title");
-            YOB = SafeInput.getRangedInt(in, "Enter the year of birth", 1000, 9999);
+            YOB = SafeInput.getRangedInt(in, "Enter the year of birth", 1940, 2000);
 
-            personRec = ID + ", " + firstName + ", " + lastName + ", " + title + ", " + YOB;
-            folks.add(personRec);
+            //personRec = ID + ", " + firstName + ", " + lastName + ", " + title + ", " + YOB;
+            Person person = new Person(ID, firstName, lastName, title, YOB);
+            folks.add(person);
 
             done = SafeInput.getYNConfirm(in, "Are you done?" );
 
         }while(!done);
 
-        for( String p: folks)
-            System.out.println(p);
+        for( Person person: folks)
+            System.out.println(person.toString());
 
         try
         {
@@ -59,9 +60,9 @@ public class PersonGenerator {
 
             // Finally can write the file LOL!
 
-            for(String rec : folks)
+            for(Person person : folks)
             {
-                writer.write(rec, 0, rec.length());  // stupid syntax for write rec
+                writer.write(person.toCSVDataRecord());  // stupid syntax for write rec
                 // 0 is where to start (1st char) the write
                 // rec. length() is how many chars to write (all)
                 writer.newLine();  // adds the new line
