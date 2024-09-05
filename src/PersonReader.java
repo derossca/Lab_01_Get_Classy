@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 
@@ -31,6 +32,9 @@ public class PersonReader {
             if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 selectedFile = chooser.getSelectedFile();
                 Path file = selectedFile.toPath();
+
+                ArrayList<Person> folks = new ArrayList<>();
+
                 // Typical java pattern of inherited classes
                 // we wrap a BufferedWriter around a lower level BufferedOutputStream
                 InputStream in =
@@ -48,9 +52,15 @@ public class PersonReader {
                     rec = reader.readLine();
                     line++;
                     // echo to screen
-                    //splitting recs
-                    String[] folks = rec.split(", ");
-                    System.out.printf("%-8s%-10s%-12s%-6s%-5s%n", folks[0], folks[1], folks[2], folks[3], folks[4]);
+                    //splitting info
+                    String[] info = rec.split(", ");
+
+                    //make person object and add it to array list
+                    Person person = new Person(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]));
+                    folks.add(person);
+
+                    //print data
+                    System.out.printf("%-8s%-10s%-12s%-6s%-5s%n", person.getIDNum(), person.getFirstName(), person.getLastName(), person.getTitle(), person.getYOB());
                 }
                 reader.close(); // must close the file to seal it and flush buffer
                 System.out.println("\n\nData file read!");
