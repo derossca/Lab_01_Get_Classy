@@ -10,7 +10,7 @@ import static java.nio.file.StandardOpenOption.CREATE;
 public class ProductWriter {
     public static void main(String[] args) {
 
-        ArrayList<String> products = new ArrayList<>();
+        ArrayList<Product> things = new ArrayList<>();
         Scanner in = new Scanner(System.in);
 
         File workingDirectory = new File(System.getProperty("user.dir"));
@@ -37,15 +37,15 @@ public class ProductWriter {
             descript = SafeInput.getNonZeroLenString(in, "Enter the description of the product");
             cost = SafeInput.getDouble(in, "What is the cost of the product?");
 
-            productRec = ID + ", " + name + ", " + descript + ", " + cost;
-            products.add(productRec);
+            Product products = new Product(ID, name, descript, cost);
+            things.add(products);
 
             done = SafeInput.getYNConfirm(in, "Are you done?" );
 
         }while(!done);
 
-        for( String p: products)
-            System.out.println(p);
+        for( Product product: things)
+            System.out.println(product.toCSVDataRecord());
 
         try
         {
@@ -58,9 +58,9 @@ public class ProductWriter {
 
             // Finally can write the file LOL!
 
-            for(String rec : products)
+            for(Product product : things)
             {
-                writer.write(rec, 0, rec.length());  // stupid syntax for write rec
+                writer.write(product.toCSVDataRecord());  // stupid syntax for write rec
                 // 0 is where to start (1st char) the write
                 // rec. length() is how many chars to write (all)
                 writer.newLine();  // adds the new line
