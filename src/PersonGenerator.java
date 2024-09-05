@@ -36,7 +36,7 @@ public class PersonGenerator {
             firstName = SafeInput.getNonZeroLenString(in, "Enter the first name");
             lastName = SafeInput.getNonZeroLenString(in, "Enter the last name");
             title = SafeInput.getNonZeroLenString(in, "Enter the title");
-            YOB = SafeInput.getRangedInt(in, "Enter the year of birth", 1940, 2000);
+            YOB = SafeInput.getRangedInt(in, "Enter the year of birth", 1940, 2010);
 
             //personRec = ID + ", " + firstName + ", " + lastName + ", " + title + ", " + YOB;
             Person person = new Person(ID, firstName, lastName, title, YOB);

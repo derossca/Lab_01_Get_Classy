@@ -78,4 +78,15 @@ public class Person {
     public void setYOB(int YOB) {
         this.YOB = YOB;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "IDNum='" + IDNum + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", title='" + title + '\'' +
+                ", YOB=" + YOB +
+                '}';
+    }
 }
