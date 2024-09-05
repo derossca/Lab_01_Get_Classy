@@ -10,8 +10,8 @@ import static java.nio.file.StandardOpenOption.CREATE;
 public class PersonGenerator {
     public static void main(String[] args) {
 
-        ArrayList<Person> folks = new ArrayList<>();
         Scanner in = new Scanner(System.in);
+        ArrayList<Person> folks = new ArrayList<>();
 
         File workingDirectory = new File(System.getProperty("user.dir"));
         Path file = Paths.get(workingDirectory.getPath() + "_src_personTestData.txt");
@@ -62,6 +62,7 @@ public class PersonGenerator {
 
             for(Person person : folks)
             {
+                // Needs looked at with tutor help
                 writer.write(person.toCSVDataRecord());  // stupid syntax for write rec
                 // 0 is where to start (1st char) the write
                 // rec. length() is how many chars to write (all)
