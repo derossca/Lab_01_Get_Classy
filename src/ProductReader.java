@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 
@@ -31,6 +32,9 @@ public class ProductReader {
             if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 selectedFile = chooser.getSelectedFile();
                 Path file = selectedFile.toPath();
+
+                ArrayList<Product> things = new ArrayList<>();
+
                 // Typical java pattern of inherited classes
                 // we wrap a BufferedWriter around a lower level BufferedOutputStream
                 InputStream in =
@@ -50,7 +54,13 @@ public class ProductReader {
                     // echo to screen
                     //splitting recs
                     String[] productRecs = product.split(", ");
-                    System.out.printf("%-8s%-12s%-26s%-7s%n", productRecs[0], productRecs[1], productRecs[2], productRecs[3]);
+
+                    //making Product object and adding it to list
+                    Product products = new Product(productRecs[0], productRecs[1], productRecs[2], Double.parseDouble(productRecs[3]));
+                    things.add(products);
+
+                    //displaying results
+                    System.out.printf("%-8s%-12s%-26s%-7s%n", products.getID(), products.getName(), products.getDescript(), products.getCost());
                 }
                 reader.close(); // must close the file to seal it and flush buffer
                 System.out.println("\n\nData file read!");
