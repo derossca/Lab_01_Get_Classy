@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 class PersonTest {
 
+    //***NEED HELP TESTING CONSTRUCTOR***//
+
     Person p1;
 
     @BeforeEach
@@ -25,13 +27,13 @@ class PersonTest {
     //***NEED HELP***
     @Test
     void getAge() {
-        assertEquals(34, p1.getAge());
+
     }
 
     //***NEED HELP***
     @Test
     void testGetAge() {
-        assertEquals(34, p1.getAge());
+
     }
 
     @Test

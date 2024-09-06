@@ -7,6 +7,14 @@ public class Person {
     private String title;
     private int YOB;
 
+    /**
+     * constructor for instance variables
+     * @param IDNum
+     * @param firstName
+     * @param lastName
+     * @param title
+     * @param YOB
+     */
     public Person(String IDNum, String firstName, String lastName, String title, int YOB) {
         this.IDNum = IDNum;
         this.firstName = firstName;
@@ -44,6 +52,8 @@ public class Person {
         int age = currentYear - YOB;
         return String.valueOf(age);
     }
+
+    //***NEED HELP with top and bottom***
 
     /**
      * Get a String which determines the age of the person
