@@ -40,5 +40,7 @@ class ProductTest {
 
     @Test
     void testToString() {
+        assertEquals("Product{ID='000001', name='Pipeweed', descript='Long Bottom Leaf', cost=600.0}", product.toString());
+
     }
 }
