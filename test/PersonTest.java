@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
+
 import static org.junit.jupiter.api.Assertions.*;
 class PersonTest {
 
@@ -27,13 +29,9 @@ class PersonTest {
     //***NEED HELP***
     @Test
     void getAge() {
-
-    }
-
-    //***NEED HELP***
-    @Test
-    void testGetAge() {
-
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int expectedAge = currentYear - 1990;
+        assertEquals(String.valueOf(expectedAge), p1.getAge());
     }
 
     @Test
