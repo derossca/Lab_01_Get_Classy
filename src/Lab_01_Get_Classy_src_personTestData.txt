@@ -1,0 +1,5 @@
+000001,Master,Splinter,Sensei,1988
+000002,Leonardo,Turtle,Mr.,1988
+000003,Raphael,Turtle,Mr.,1988
+000004,Donatello,Turtle,Mr.,1988
+000005,Michaelangelo,Turtle,Mr.,1988

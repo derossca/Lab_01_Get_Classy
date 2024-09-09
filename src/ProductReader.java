@@ -44,7 +44,7 @@ public class ProductReader {
 
                 // Finally we can read the file LOL!
 
-                System.out.printf("%-8s%-12s%-26s%-7s%n", "ID#", "Name", "Description", "Cost");
+                System.out.printf("%-8s%-12s%-30s%-7s%n", "ID#", "Name", "Description", "Cost");
                 System.out.println("=====================================================");
 
                 int line = 0;
@@ -53,14 +53,14 @@ public class ProductReader {
                     line++;
                     // echo to screen
                     //splitting recs
-                    String[] productRecs = product.split(", ");
+                    String[] productRecs = product.split(",");
 
                     //making Product object and adding it to list
                     Product products = new Product(productRecs[0], productRecs[1], productRecs[2], Double.parseDouble(productRecs[3]));
                     things.add(products);
 
                     //displaying results
-                    System.out.printf("%-8s%-12s%-26s%-7s%n", products.getID(), products.getName(), products.getDescript(), products.getCost());
+                    System.out.printf("%-8s%-12s%-30s%-7s%n", products.getID(), products.getName(), products.getDescript(), products.getCost());
                 }
                 reader.close(); // must close the file to seal it and flush buffer
                 System.out.println("\n\nData file read!");
