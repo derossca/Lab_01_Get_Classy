@@ -80,11 +80,11 @@ public class Person {
     public String toJSONRecord() {
         String retString = "";
         char DQ = '\u0022'; //Assign the double quote char to a variable for readability
-        retString = "{" + DQ + "IDNum" + DQ + ":" + DQ + this.IDNum + DQ + "," +
-                DQ + "firstName" + DQ + ":" + DQ + this.firstName + DQ + "," +
-                DQ + "lastName" + DQ + ":" + DQ + this.lastName + DQ + "," +
-                DQ + "title" + DQ + ":" + DQ + this.title + DQ + "," +
-                DQ + "YOB" + DQ + ":" + DQ + this.YOB + DQ + "}";
+        retString = "{" + DQ + "IDNum" + DQ + ":" + DQ + IDNum + DQ + "," +
+                DQ + "firstName" + DQ + ":" + DQ + firstName + DQ + "," +
+                DQ + "lastName" + DQ + ":" + DQ + lastName + DQ + "," +
+                DQ + "title" + DQ + ":" + DQ + title + DQ + "," +
+                DQ + "YOB" + DQ + ":" + DQ + YOB + DQ + "}";
 
         return retString;
     }
@@ -95,12 +95,13 @@ public class Person {
      */
     public String toXMLRecord() {
         String retString = "";
-        retString = "<Person>";
+        retString = "<person>";
         retString += "<IDNum>" + this.IDNum + "</IDNum>";
         retString += "<firstName>" + this.firstName + "</firstName>";
         retString += "<lastName>" + this.lastName + "</lastName>";
         retString += "<title>" + this.title + "</title>";
         retString += "<YOB>" + this.YOB + "</YOB>";
+        retString += "</person>";
 
         return retString;
     }

@@ -47,14 +47,7 @@ class PersonTest {
 
     @Test
     void toXMLRecord() {
-        String expectedXML = """
-                <p1>
-                    <IDNum>00000A</IDNum>
-                    <firstName>John</firstName>
-                    <lastName>Doe</lastName>
-                    <title>Mr.</title>
-                    <YOB>1990</YOB>
-                <p1>""";
+        String expectedXML = "<person><IDNum>00000A</IDNum><firstName>John</firstName><lastName>Doe</lastName><title>Mr.</title><YOB>1990</YOB></person>";
         assertEquals(expectedXML, p1.toXMLRecord());
     }
 
