@@ -9,7 +9,7 @@ public class SafeInputObj {
     }
 
     public SafeInputObj(Scanner scanner){
-        pipe = scanner;
+        this.pipe = scanner;
     }
 
     /**

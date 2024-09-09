@@ -73,6 +73,38 @@ public class Person {
         return this.IDNum + "," + this.firstName + "," + this.lastName + "," + this.title + "," + this.YOB;
     }
 
+    /**
+     * Returns the data of a person in JSON format
+     * @return data in JSON format
+     */
+    public String toJSONRecord() {
+        String retString = "";
+        char DQ = '\u0022'; //Assign the double quote char to a variable for readability
+        retString = "{" + DQ + "IDNum" + DQ + ":" + DQ + this.IDNum + DQ + "," +
+                DQ + "firstName" + DQ + ":" + DQ + this.firstName + DQ + "," +
+                DQ + "lastName" + DQ + ":" + DQ + this.lastName + DQ + "," +
+                DQ + "title" + DQ + ":" + DQ + this.title + DQ + "," +
+                DQ + "YOB" + DQ + ":" + DQ + this.YOB + DQ + "}";
+
+        return retString;
+    }
+
+    /**
+     * Returns a string of record in XML format
+     * @return Person record in XML format
+     */
+    public String toXMLRecord() {
+        String retString = "";
+        retString = "<Person>";
+        retString += "<IDNum>" + this.IDNum + "</IDNum>";
+        retString += "<firstName>" + this.firstName + "</firstName>";
+        retString += "<lastName>" + this.lastName + "</lastName>";
+        retString += "<title>" + this.title + "</title>";
+        retString += "<YOB>" + this.YOB + "</YOB>";
+
+        return retString;
+    }
+
     public String getIDNum() {
         return IDNum;
     }

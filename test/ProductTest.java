@@ -39,6 +39,22 @@ class ProductTest {
     }
 
     @Test
+    void toJSONDataRecord() {
+        String expectedJSON = "{\"ID\":\"000001\",\"name\":\"Pipeweed\",\"description\":\"Long Bottom Leaf\",\"cost\":\"600.0\"}";
+        assertEquals(expectedJSON, product.toJSONRecord());
+    }
+
+    @Test
+    void toXMLDataRecord() {
+        String expectedXML = "<Product>" +
+                "<ID>000001</ID>" +
+                "<name>Pipeweed</name>" +
+                "<description>Long Bottom Leaf</description>" +
+                "<cost>600.0</cost>";
+        assertEquals(expectedXML, product.toXMLRecord());
+    }
+
+    @Test
     void testToString() {
         assertEquals("Product{ID='000001', name='Pipeweed', descript='Long Bottom Leaf', cost=600.0}", product.toString());
 

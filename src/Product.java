@@ -52,6 +52,27 @@ public class Product
         return this.ID + "," + this.name + "," + this.descript + "," + this.cost;
     }
 
+    public String toJSONRecord() {
+        String retString = "";
+        char DQ = '\u0022'; //Assign the double quote char to a variable for readability
+        retString = "{" + DQ + "ID" + DQ + ":" + DQ + this.ID + DQ + "," +
+                DQ + "name" + DQ + ":" + DQ + this.name + DQ + "," +
+                DQ + "description" + DQ + ":" + DQ + this.descript + DQ + "," +
+                DQ + "cost" + DQ + ":" + DQ + this.cost + DQ + "}";
+        return retString;
+    }
+
+    public String toXMLRecord() {
+        String retString = "";
+        retString = "<Product>";
+        retString += "<ID>" + this.ID + "</ID>";
+        retString += "<name>" + this.name + "</name>";
+        retString += "<description>" + this.descript + "</description>";
+        retString += "<cost>" + this.cost + "</cost>";
+
+        return retString;
+    }
+
     //toString()
     @Override
     public String toString() {
