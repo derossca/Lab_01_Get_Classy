@@ -62,6 +62,8 @@ public class ProductWriter {
             {
                 writer.write(product.toCSVDataRecord());  // stupid syntax for write rec
                 // 0 is where to start (1st char) the write
+                //writer.write(product.toJSONRecord()); would write in JSON format
+                //writer.write(product.toXMLRecord()); would write in XML format
                 // rec. length() is how many chars to write (all)
                 writer.newLine();  // adds the new line
 

@@ -63,8 +63,10 @@ public class PersonGenerator {
             for(Person person : folks)
             {
                 // Needs looked at with tutor help
-                writer.write(person.toCSVDataRecord());  // stupid syntax for write rec
+                writer.write(person.toCSVDataRecord());// stupid syntax for write rec
                 // 0 is where to start (1st char) the write
+                //writer.write(person.toJSONRecord()); would write record in JSON format
+                //writer.write(person.toXMLRecord()); would write record in XML format
                 // rec. length() is how many chars to write (all)
                 writer.newLine();  // adds the new line
 
